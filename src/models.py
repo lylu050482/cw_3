@@ -14,14 +14,14 @@ class Operation:
             to: str,
     ):
         """
-
-        :param pk:
-        :param date:
-        :param state:
-        :param operation_amount:
-        :param description:
-        :param from_:
-        :param to:
+        Инициализация данных
+        :param pk: id пользователя
+        :param date: дата операции
+        :param state: состояние выполнения
+        :param operation_amount: сумма операции
+        :param description: описание
+        :param from_: от кого
+        :param to: кому
         """
         self.pk = pk
         self.date = self.convert_date(date)
@@ -34,15 +34,18 @@ class Operation:
 
     def convert_date(self, date: str):
         """
-
-        :param date:
-        :return:
+        Конвертация данных, приведение к заданному формату
         """
         iso_date = datetime.fromisoformat(date)
         return datetime.strftime(iso_date, "%d.%m.%Y")
 
 
     def convert_info_payment(self, info_payment: str) -> str:
+        """
+        Конвертация данных платежа
+        :param info_payment: данные пользователя и карты
+        :return: строку с данными о платеже
+        """
         if info_payment:
             info_list = info_payment.split()
             if info_payment.startswith("Счет"):

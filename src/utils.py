@@ -16,9 +16,9 @@ def load_operations(path: str) -> list[dict]:
 
 def get_instances(operations: list[dict]) -> list[Operation]:
     """
-
-    :param operations:
-    :return:
+    Получение экземпляра класса
+    :param operations: список словарей
+    :return: список операций
     """
     operation_instances = []
     for operation in operations:
@@ -37,9 +37,9 @@ def get_instances(operations: list[dict]) -> list[Operation]:
 
 def get_executed(operations: list[Operation]) -> list[Operation]:
     """
-
-    :param operations:
-    :return:
+    Получаем данные о выполнении операции
+    :param operations: список операций
+    :return: список выполненных операций
     """
     executed_operation = []
     for operation in operations:
@@ -50,8 +50,8 @@ def get_executed(operations: list[Operation]) -> list[Operation]:
 
 def sort_operations_by_date(operations: list[Operation]) -> list[Operation]:
     """
-
-    :param operations:
-    :return:
+    Сортировка операций по дате выполнения
+    :param operations: список операций
+    :return: список выполненных операций от последней к первой
     """
     return sorted(operations, key=lambda operation: datetime.strptime(operation.date, "%d.%m.%Y"), reverse=True)
